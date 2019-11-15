@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+  </head>
+  <body>
+    <section>
+      <h1>Safe Venting Space</h1>
+      <h2>Instructions: Use this space as a go to when you need to share something good, bad, or sad this is the place. If you would like for someone to respond to your "share" feel free to attach a "Response Color."
+        They will include that color in their response</h2>
+    </section>
+
+    <section class="chatBox">
+      <ul>
+        <% for(var i=0; i<canCallThisAnything.length; i++) {%>
+          <li>
+            <span><%= canCallThisAnything[i].subject %></span>
+            <span class=""><%= canCallThisAnything[i].responseColor%></span>
+            <span><%= canCallThisAnything[i].message%></span>
+            <span><%= canCallThisAnything[i].heart %></span>
+            <span><i class="fas fa-heart" aria-hidden="true"></i></span>
+            <span><i class="fas fa-retweet" aria-hidden="true"></i></span>
+            <span><i class="fas fa-minus-circle" aria-hidden="true"></i></span>
+          </li>
+        <% } %>
+      </ul>
+    </section>
+
+    <section class="entryBox">
+      <form action="/chat" method="POST">
+        <!-- to grab the content from a post or user submit you need to use the "name=" name so its 'req.body.subject' -->
+        <section class="category">
+          <input class="word" type="text" name="subject" value=""placeholder="Ex: Work, Family, etc..">
+        </section>
+        <section class="color">
+          <input class="word" type="text" name="responseColor" value=""placeholder="Ex: purple, Yellow, Orange ...">
+        </section>
+        <section class="ventingMessage">
+          <input class="chat" type="text" name="message" value=""placeholder="Ex: Today has been ....">
+        </section>
+        <button id="check" type="submit">Vent</button>
+      </form>
+    </section>
+
+
+
+<script type="text/javascript" src="main.js">
+
+</script>
+  </body>
+</html>
