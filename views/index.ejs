@@ -10,8 +10,10 @@
   <body>
     <section>
       <h1>Safe Venting Space</h1>
-      <h2>Instructions: Use this space as a go to when you need to share something good, bad, or sad this is the place. If you would like for someone to respond to your "share" feel free to attach a "Response Color."
-        They will include that color in their response</h2>
+      <h2>Instructions: Use this space as a go to when you need to share something good,
+        bad, or sad this is the place. If you would like for someone to respond to your "share" feel free to
+        write "YES" in the reply section. You can also re-share someones message by clicking on the
+      "retweet" button.</h2>
     </section>
 
     <section class="chatBox">
@@ -19,12 +21,12 @@
         <% for(var i=0; i<canCallThisAnything.length; i++) {%>
           <li>
             <span><%= canCallThisAnything[i].subject %></span>
-            <span class=""><%= canCallThisAnything[i].responseColor%></span>
+            <span class="colorWord"><%= canCallThisAnything[i].responseColor%></span>
             <span><%= canCallThisAnything[i].message%></span>
             <span><%= canCallThisAnything[i].heart %></span>
             <span><i class="fas fa-heart" aria-hidden="true"></i></span>
             <span><i class="fas fa-retweet" aria-hidden="true"></i></span>
-            <span><i class="fas fa-minus-circle" aria-hidden="true"></i></span>
+            <!-- <span><i class="fas fa-minus-circle" aria-hidden="true"></i></span> -->
           </li>
         <% } %>
       </ul>
@@ -34,10 +36,12 @@
       <form action="/chat" method="POST">
         <!-- to grab the content from a post or user submit you need to use the "name=" name so its 'req.body.subject' -->
         <section class="category">
-          <input class="word" type="text" name="subject" value=""placeholder="Ex: Work, Family, etc..">
+          <label for="text">MOOD</label>
+          <input class="word" type="text" name="subject" value=""placeholder="ANGRY, HAPPY">
         </section>
         <section class="color">
-          <input class="word" type="text" name="responseColor" value=""placeholder="Ex: purple, Yellow, Orange ...">
+          <label for="text">Reply</label>
+          <input class="word" type="text" name="responseColor" value=""placeholder="YES, NO">
         </section>
         <section class="ventingMessage">
           <input class="chat" type="text" name="message" value=""placeholder="Ex: Today has been ....">

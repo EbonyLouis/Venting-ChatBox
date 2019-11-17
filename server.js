@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
-const url = 'mongodb+srv://ebonyjlouis:Butterfly12@palindrome-wjzio.mongodb.net/test?retryWrites=true&w=majority'
+const url = 'mongodb+srv://ebonyjlouis:demo@palindrome-wjzio.mongodb.net/test?retryWrites=true&w=majority'
 var db, collection;
 const dbName = "assignment";
 
@@ -61,14 +61,5 @@ app.put('/messages', (req, res) => {
   }, (err, result) => {
     if (err) return res.send(err)
     res.send(result)
-  })
-})
-
-
-
-app.delete('/messages', (req, res) => {
-  db.collection('vent').findOneAndDelete({subject: req.body.subject, responseColor: req.body.responseColor, message: req.body.message}, (err, result) => {
-    if (err) return res.send(500, err)
-    res.send('Message deleted!')
   })
 })
